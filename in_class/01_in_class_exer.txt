@@ -1,0 +1,79 @@
+Last login: Sun Sep 13 18:30:28 on ttys000
+(base) jonathanding@Jonathans-MacBook-Air-3 ~ % ssh ding.jo@login.explorer.northeastern.edu
+ding.jo@login.explorer.northeastern.edu's password: 
+Last login: Sun Sep 13 19:34:44 2026 from 10.110.251.49
+    _______  __ ____  __    ____  ____  __________
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|
+
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+# Deleted lines for readability
+
+[ding.jo@explorer-02 ~]$ cd bioinformatics-portfolio/
+[ding.jo@explorer-02 bioinformatics-portfolio]$ # Check my repository
+[ding.jo@explorer-02 bioinformatics-portfolio]$ ls
+README.md
+[ding.jo@explorer-02 bioinformatics-portfolio]$ # Create directory for sequence files
+[ding.jo@explorer-02 bioinformatics-portfolio]$ mkdir sequence_files
+[ding.jo@explorer-02 bioinformatics-portfolio]$ # Create directory for in-class work
+[ding.jo@explorer-02 bioinformatics-portfolio]$ mkdir in_class
+[ding.jo@explorer-02 bioinformatics-portfolio]$ # Check new directories
+[ding.jo@explorer-02 bioinformatics-portfolio]$ ls
+in_class  README.md  sequence_files
+[ding.jo@explorer-02 bioinformatics-portfolio]$ # Look for course data files
+[ding.jo@explorer-02 /]$ cd courses/
+[ding.jo@explorer-02 courses]$ ls
+ALY4020.202710   BIOT7001.202710  CS7150.202710      IE7615.202710
+ALY6980.202710   BTC4200.202710   CS7170.202710      IE7945.202710
+archive          CHEM2162.202710  CS7980.202710      INFO7375.202710
+BINF6250.202710  CHEM3402.202710  CY4100.202710      INSH6406.202710
+BINF6310.202710  CHEM3404.202710  discovery-courses  NETS7052.202710
+BINF6400.202710  CHEM3432.202710  ENSY5800.202710    PHSC5905.202710
+BINF6430.202710  CHEM5641         etc                ReadMe.md
+BINF6610.202710  CS5130.202710    etc-explorer       src
+BIOL2406.202710  CS6120.202710    explorer-courses   TO_BE_ARCHIVED
+BIOL6216.202710  CS6180.202710    HINF5500.202710
+[ding.jo@explorer-02 courses]$ cd BIOL2406.202710/
+[ding.jo@explorer-02 BIOL2406.202710]$ ls
+data  shared  staff  students
+[ding.jo@explorer-02 BIOL2406.202710]$ ls data/
+At_prot_abr.fasta
+[ding.jo@explorer-02 BIOL2406.202710]$ cd data/
+[ding.jo@explorer-02 data]$ ls
+At_prot_abr.fasta
+# Copy the file from the course data files into the new directory
+[ding.jo@explorer-02 data]$ cp At_prot_abr.fasta ~/bioinformatics-portfolio/sequence_files/
+[ding.jo@explorer-02 data]$ cd ~/bioinformatics-portfolio/sequence_files/
+[ding.jo@explorer-02 sequence_files]$ # Use cat to view directory contents
+[ding.jo@explorer-02 sequence_files]$ cd ..
+[ding.jo@explorer-02 bioinformatics-portfolio]$ cat sequence_files/
+cat: sequence_files/: Is a directory
+[ding.jo@explorer-02 bioinformatics-portfolio]$ cd sequence_files/
+[ding.jo@explorer-02 sequence_files]$ cat At_prot_abr.fasta 
+>ATMG00280.1 | Symbols: ORF110A | hypothetical protein | chrM:77819-78151 REVERSE
+MNNAAKRADCWFGAKNYGRAVYECLRGGLYFTKDDENVNSQPFMRWRDRFLFCAEAVYKA
+QAETGGIKGHYLNATAGTCEEMIKRAVFARELGVPIVMHDYLNRGIHRKY*
+>ATMG01350.1 | Symbols: ORF145C | hypothetical protein | chrM:346757-347194 FORWARD
+MTKREYNSQPEMKEEVLAYLLQLSASLVLPVAIWLIAAGQIFTCLRGYTISNYQEKVEEK
+LCSTLVDKISEKLADLFPVYGITPSRNAPFPTILEQLLATVSQEERLAYLSNMYNSLIEM
+GIDSPCFYPIVQTFLFLMGGGGGPA*
+# Deleted lines for readability
+# Rename the file
+[ding.jo@explorer-02 sequence_files]$ mv At_prot_abr.fasta At_prot_abr_arabidopsis.fasta
+[ding.jo@explorer-02 sequence_files]$ # Check renaming
+[ding.jo@explorer-02 sequence_files]$ ls
+At_prot_abr_arabidopsis.fasta
+[ding.jo@explorer-02 sequence_files]$ # Remove the file
+[ding.jo@explorer-02 sequence_files]$ rm At_prot_abr_arabidopsis.fasta 
+[ding.jo@explorer-02 sequence_files]$ 
+# I moved the bioinformatics-portfolio repo to the students folder after this
