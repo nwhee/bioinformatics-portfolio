@@ -1,0 +1,91 @@
+[ding.jo@explorer-01 in_class]$ srun --pty bash
+srun: job 10581941 queued and waiting for resources
+srun: job 10581941 has been allocated resources
+# edited for readability
+ding.jo@c0587 BIOL2406.202710]$ cd misc/
+[ding.jo@c0587 misc]$ ls
+grep_exercise.txt  perm_example.txt
+[ding.jo@c0587 misc]$ cp grep_exercise.txt /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/in_class/
+[ding.jo@c0587 misc]$ ls
+grep_exercise.txt  perm_example.txt
+[ding.jo@c0587 misc]$ cd ../students/ding.jo/bioinformatics-portfolio/in_class/
+01_in_class_exer.txt  grep_exercise.txt  JD_DNA_names
+2_AA_names            JD_AA_names        JD_trans.sh
+error_10490518.txt    JD_batch_trans.sh  output_10490518.txt
+[ding.jo@c0587 in_class]$ cat grep_exercise.txt 
+>seq1_wildtype
+ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+>seq2_mutant
+ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+>seq3_wildtype
+ATGCCCGGGAATTCGATCGATCGGGCCATGCA
+>seq4_control
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+# Part 1
+# q1
+[ding.jo@c0587 in_class]$ grep ">" grep_exercise.txt 
+>seq1_wildtype
+>seq2_mutant
+>seq3_wildtype
+>seq4_control
+# q2
+[ding.jo@c0587 in_class]$ grep -c ">" grep_exercise.txt 
+4
+# Part 2
+# q3
+[ding.jo@c0587 in_class]$ grep "GAATTC" grep_exercise.txt 
+ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+ATGCCCGGGAATTCGATCGATCGGGCCATGCA
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+# q4
+[ding.jo@c0587 in_class]$ grep "GGATCC" grep_exercise.txt 
+ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[ding.jo@c0587 in_class]$ grep -n "GGATCC" grep_exercise.txt 
+2:ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+4:ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+8:NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[ding.jo@c0587 in_class]$ cat -n grep_exercise.txt 
+     1	>seq1_wildtype
+     2	ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+     3	>seq2_mutant
+     4	ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+     5	>seq3_wildtype
+     6	ATGCCCGGGAATTCGATCGATCGGGCCATGCA
+     7	>seq4_control
+     8	NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+# q5
+[ding.jo@c0587 in_class]$ grep -v "GAATTC" grep_exercise.txt 
+>seq1_wildtype
+>seq2_mutant
+ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+>seq3_wildtype
+>seq4_control
+# Part 3
+# q6
+[ding.jo@c0587 in_class]$ grep "N" grep_exercise.txt 
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+# q7
+[ding.jo@c0587 in_class]$ grep -n "N" grep_exercise.txt 
+8:NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+# Part 4
+# q8
+[ding.jo@c0587 in_class]$ grep "mutant" grep_exercise.txt 
+>seq2_mutant
+# q9
+[ding.jo@c0587 in_class]$ grep -c "wildtype" grep_exercise.txt 
+2
+# q10
+[ding.jo@c0587 in_class]$ grep ">" grep_exercise.txt 
+>seq1_wildtype
+>seq2_mutant
+>seq3_wildtype
+>seq4_control
+[ding.jo@c0587 in_class]$ grep -c ">" grep_exercise.txt 
+4
+# q11 references a command from earlier "N"
+# q12
+[ding.jo@c0587 in_class]$ grep -o "G" grep_exercise.txt | wc -l
+38
+
