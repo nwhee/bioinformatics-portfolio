@@ -18,3 +18,6 @@ This repository documents the bioinformatics skills I developed during my introd
 
 Each folder corresponds to a unit of the course and contains scripts, summary results, and documentation of the methods used.
 
+The 01_UNIX_HPC assignment is located in the 01_UNIX_HPC folder.
+
+/courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX_HPC
