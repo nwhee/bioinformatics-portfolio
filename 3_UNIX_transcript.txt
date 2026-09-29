@@ -1,0 +1,122 @@
+[ding.jo@explorer-02 ~]$ srun --pty /bin/bash
+srun: job 10673299 queued and waiting for resources
+srun: job 10673299 has been allocated resources
+[ding.jo@c0613 ~]$ cd /courses/BIOL2406.202710/students/ding.jo/
+[ding.jo@c0613 ding.jo]$ cp -r ../../data/untrimmed_fastq/ .
+[ding.jo@c0613 ding.jo]$ # Exercise 1
+[ding.jo@c0613 ding.jo]$ ls /usr/bin/c*
+/usr/bin/c++                 /usr/bin/clevis
+/usr/bin/c89                 /usr/bin/clevis-decrypt
+/usr/bin/c99                 /usr/bin/clevis-decrypt-null
+/usr/bin/cal                 /usr/bin/clevis-decrypt-sss
+# Edited for readability
+[ding.jo@c0613 ding.jo]$ ls /usr/bin/*o
+/usr/bin/avinfo            /usr/bin/iso-info    /usr/bin/rnano
+/usr/bin/bluetooth-sendto  /usr/bin/kbdinfo     /usr/bin/rpcinfo
+/usr/bin/captoinfo         /usr/bin/kvno        /usr/bin/rpm2cpio
+/usr/bin/cd-info           /usr/bin/ld.so       /usr/bin/sginfo
+/usr/bin/circo             /usr/bin/lessecho    /usr/bin/sinfo
+# Edited for readability
+[ding.jo@c0613 ding.jo]$ # Bonus
+[ding.jo@c0613 ding.jo]$ ls /usr/bin/*{a,c}*
+/usr/bin/a2x
+/usr/bin/a2x.py
+/usr/bin/ab
+/usr/bin/ac
+/usr/bin/ac
+/usr/bin/aclocal
+# Edited for readability
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 2
+[ding.jo@c0613 untrimmed_fastq]$ cd ..
+[ding.jo@c0613 ding.jo]$ cat untrimmed_fastq/SRR097977.fastq 
+@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT
++SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+CCCCCCCCCCCCCCC>CCCCC7CCCCCCACA?5A5<
+@SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+GGTTACTCTTTTAACCTTGATGTTTCGACGCTGTAT
++SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+CC:?:CC:?CCCCC??C?:?C-&:C:,?<&*?+7?<
+@SRR097977.3 209DTAAXX_Lenski2_1_7:8:3:663:569 length=36
+TTGTTCGCTTTTGGTAATTAATCCCGGAAATAATAA
++SRR097977.3 209DTAAXX_Lenski2_1_7:8:3:663:569 length=36
+CCCCCCCCCCCC&9AACCC,C>CCAA&0?4A9&A<6
+# Edited for readability
+[ding.jo@c0613 ding.jo]$ cd ~
+[ding.jo@c0613 ~]$ cat /courses/BIOL2406.202710/students/ding.jo/untrimmed_fastq/*
+@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT
++SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+CCCCCCCCCCCCCCC>CCCCC7CCCCCCACA?5A5<
+@SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+GGTTACTCTTTTAACCTTGATGTTTCGACGCTGTAT
++SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+CC:?:CC:?CCCCC??C?:?C-&:C:,?<&*?+7?<
+# Edited for readability
+[ding.jo@c0613 ~]$ cd /courses/BIOL2406.202710/students/ding.jo/untrimmed_fastq
+[ding.jo@c0613 untrimmed_fastq]$ less SRR097977.fastq 
+[ding.jo@c0613 untrimmed_fastq]$ less SRR097977.fastq 
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 3
+[ding.jo@c0613 untrimmed_fastq]$ less SRR097977.fastq 
+[ding.jo@c0613 untrimmed_fastq]$ # After TTTTT is CAC
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 4
+[ding.jo@c0613 untrimmed_fastq]$ mkdir backup
+[ding.jo@c0613 untrimmed_fastq]$ cp SRR097977.fastq SRR097977-backup.fastq 
+[ding.jo@c0613 untrimmed_fastq]$ ls
+backup  SRR097977-backup.fastq  SRR097977.fastq  SRR098026.fastq
+[ding.jo@c0613 untrimmed_fastq]$ cp SRR098026.fastq SRR098026-backup.fastq
+[ding.jo@c0613 untrimmed_fastq]$ ls
+backup                  SRR097977.fastq         SRR098026.fastq
+SRR097977-backup.fastq  SRR098026-backup.fastq
+[ding.jo@c0613 untrimmed_fastq]$ mv *backup.* backup/
+[ding.jo@c0613 untrimmed_fastq]$ ls backup/
+SRR097977-backup.fastq  SRR098026-backup.fastq
+[ding.jo@c0613 untrimmed_fastq]$ cd backup/
+[ding.jo@c0613 backup]$ chmod -w *
+[ding.jo@c0613 backup]$ ls -l
+total 89
+-r-xr-xr-x 1 ding.jo BIOL2406.202710-staff 47552 Sep 28 23:00 SRR097977-backup.fastq
+-r-xr-xr-x 1 ding.jo BIOL2406.202710-staff 43332 Sep 28 23:00 SRR098026-backup.fastq
+[ding.jo@c0613 backup]$ # Exercise 5
+[ding.jo@c0613 backup]$ cd ..
+[ding.jo@c0613 untrimmed_fastq]$ grep -B1 "GNATNACCACTTCC" SRR098026.fastq
+@SRR098026.245 HWUSI-EAS1599_1:2:1:2:801 length=35
+GNATNACCACTTCCAGTGCTGANNNNNNNGGGATG
+[ding.jo@c0613 untrimmed_fastq]$ grep -B1 "AAGTT" *.fastq 
+SRR097977.fastq-@SRR097977.11 209DTAAXX_Lenski2_1_7:8:3:247:351 length=36
+SRR097977.fastq:GATTGCTTTAATGAAAAAGTCATATAAGTTGCCATG
+--
+SRR097977.fastq-@SRR097977.67 209DTAAXX_Lenski2_1_7:8:3:544:566 length=36
+SRR097977.fastq:TTGTCCACGCTTTTCTATGTAAAGTTTATTTGCTTT
+--
+SRR097977.fastq-@SRR097977.68 209DTAAXX_Lenski2_1_7:8:3:724:110 length=36
+SRR097977.fastq:TGAAGCCTGCTTTTTTATACTAAGTTTGCATTATAA
+# Edited for readability
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 6
+[ding.jo@c0613 untrimmed_fastq]$ wc -l SRR098026.fastq 
+996 SRR098026.fastq
+[ding.jo@c0613 untrimmed_fastq]$ # also this
+[ding.jo@c0613 untrimmed_fastq]$ grep -c "^@" SRR098026.fastq
+252
+[ding.jo@c0613 untrimmed_fastq]$ # although the number is slightly different
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 7
+[ding.jo@c0613 untrimmed_fastq]$ for filename in *.txt
+> do
+> name=$(basename ${filename} .txt)
+> echo ${name}
+> done
+bad_reads
+seq_info
+# Exercise 8
+[ding.jo@c0613 untrimmed_fastq]$ for filename in *.txt
+> do
+> name=$(basename ${filename} _2021.txt)
+> mv ${filename} ${name}.txt
+> done
+# Exercise 9
+[ding.jo@c0613 untrimmed_fastq]$ nano README.txt
+[ding.jo@c0613 untrimmed_fastq]$ # Exercise 10
+[ding.jo@c0613 untrimmed_fastq]$ nano bad-reads-script.sh 
+[ding.jo@c0613 untrimmed_fastq]$ bash bad-reads-script.sh 
+Script finished!
+[ding.jo@c0613 untrimmed_fastq]$ 
