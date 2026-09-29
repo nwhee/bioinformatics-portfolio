@@ -5,16 +5,16 @@
 This directory contains all files and data associated with the UNIX/HPC tutorial.
 ## Contents and Locations
 
-Part 1:
+1_UNIX_transcript.txt:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/1_UNIX_transcript.txt
 - Contains the shell transcript (cleaned and commented) for the tasks from part 1
 
-Part 2:
+2_UNIX_transcript.txt:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/2_UNIX
 _transcript.txt
 - Contains the shell transcript (cleaned and commented) for the tasks from part 2
 
-Part 3:
+3_UNIX_transcript.txt:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/3_UNIX
 _transcript.txt
 - Contains the shell transcript (cleaned and commented) for the exercises from part 3
