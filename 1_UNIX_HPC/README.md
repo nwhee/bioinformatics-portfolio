@@ -22,12 +22,17 @@ _transcript.txt
 ## Program Version
 
 GNU bash, version 5.1.8(1)-release (x86_64-redhat-linux-gnu)
+
 Copyright (C) 2020 Free Software Foundation, Inc.
+
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 
 This is free software; you are free to change and redistribute it.
+
 There is NO WARRANTY, to the extent permitted by law.
 
 ## Notes on editing
 
-I deleted content in all of the transcripts. It will usually be marked with a comment, "Edited for readability" or something similar.
+I cleaned all of the transcripts by deleting content. This was either to remove failed/imperfect commands or to reduce output from commands when it becmae too long.
+
+Deletions to reduce output will usually be marked with a comment, "Edited for readability" or something similar. Deletions to remove mistakes are generally not marked.
