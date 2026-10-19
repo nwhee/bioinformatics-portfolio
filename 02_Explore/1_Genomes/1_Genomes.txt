@@ -1,0 +1,51 @@
+Last login: Mon Oct 19 12:38:47 on ttys001
+(base) jonathanding@Jonathans-MacBook-Air-3 ~ % ssh ding.jo@login.explorer.northeastern.edu
+ding.jo@login.explorer.northeastern.edu's password: 
+Last failed login: Mon Oct 19 16:02:03 EDT 2026 from 10.110.110.4 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Mon Oct 19 12:41:00 2026 from 10.110.110.4
+    _______  __ ____  __    ____  ____  __________
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|
+
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+
+[ding.jo@explorer-02 ~]$ cd /courses/BIOL2406.202710/students/ding.jo/
+[ding.jo@explorer-02 ding.jo]$ module load anaconda3/2024.06 
+[ding.jo@explorer-02 ding.jo]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0   2) anaconda3/2024.06  
+[ding.jo@explorer-02 ding.jo]$ srun --pty /bin/bash
+srun: job 11232750 queued and waiting for resources
+srun: job 11232750 has been allocated resources
+[ding.jo@c0613 ding.jo]$ source activate /courses/BIOL2406.202710/shared/emboss_env/
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 ding.jo]$ cd ..
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 students]$ cd ding.jo/Data/02_Explore/
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # How many sequence files are in the worm genome?
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ infoseq GCF_000002985.6_WBcel235_genomic.fna | less -S
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # 7 (6 for each chromosome, 1 for mitochondrion)
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # How many sequence files are in the Borrelia genome?
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ infoseq GCF_000008685.2_ASM868v2_genomic.fna | less -S
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ infoseq GCF_000008685.2_ASM868v2_genomic.fna | less -S | wc -l
+Display basic information about sequences
+23
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # 22 files, since the first line is the header
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # Which sequence in the worm genome has the lowest GC%?
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ infoseq GCF_000002985.6_WBcel235_genomic.fna | less -S
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # Mitochondrial sequence, then chromosome IV
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # Which plasmid in the Borrelia has the highest GC%?
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ infoseq GCF_000008685.2_ASM868v2_genomic.fna | less -S
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # B31 plasmid lp28-1
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # What is interesting about this plasmid?
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ # It is critical for long-term infection and immune evasion in mammalian hosts.
+(/courses/BIOL2406.202710/shared/emboss_env) [ding.jo@c0613 02_Explore]$ 
