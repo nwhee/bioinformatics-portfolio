@@ -1,0 +1,64 @@
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039508_1.fastq GEO_fastq/SRR1039508_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039508_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:34:35 ..... started STAR run
+Oct 19 14:34:35 ..... loading genome
+Oct 19 14:35:13 ..... started mapping
+Oct 19 14:36:13 ..... finished mapping
+Oct 19 14:36:14 ..... started sorting BAM
+Oct 19 14:36:42 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039509_1.fastq GEO_fastq/SRR1039509_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039509_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:36:43 ..... started STAR run
+Oct 19 14:36:43 ..... loading genome
+Oct 19 14:36:56 ..... started mapping
+Oct 19 14:37:58 ..... finished mapping
+Oct 19 14:37:58 ..... started sorting BAM
+Oct 19 14:38:24 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039512_1.fastq GEO_fastq/SRR1039512_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039512_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:38:25 ..... started STAR run
+Oct 19 14:38:25 ..... loading genome
+Oct 19 14:38:35 ..... started mapping
+Oct 19 14:39:48 ..... finished mapping
+Oct 19 14:39:48 ..... started sorting BAM
+Oct 19 14:40:22 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039513_1.fastq GEO_fastq/SRR1039513_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039513_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:40:24 ..... started STAR run
+Oct 19 14:40:24 ..... loading genome
+Oct 19 14:40:34 ..... started mapping
+Oct 19 14:41:19 ..... finished mapping
+Oct 19 14:41:20 ..... started sorting BAM
+Oct 19 14:41:40 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039516_1.fastq GEO_fastq/SRR1039516_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039516_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:41:41 ..... started STAR run
+Oct 19 14:41:41 ..... loading genome
+Oct 19 14:41:51 ..... started mapping
+Oct 19 14:43:09 ..... finished mapping
+Oct 19 14:43:10 ..... started sorting BAM
+Oct 19 14:43:44 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039517_1.fastq GEO_fastq/SRR1039517_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039517_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:43:45 ..... started STAR run
+Oct 19 14:43:45 ..... loading genome
+Oct 19 14:43:56 ..... started mapping
+Oct 19 14:45:25 ..... finished mapping
+Oct 19 14:45:25 ..... started sorting BAM
+Oct 19 14:46:11 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039520_1.fastq GEO_fastq/SRR1039520_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039520_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:46:13 ..... started STAR run
+Oct 19 14:46:13 ..... loading genome
+Oct 19 14:46:24 ..... started mapping
+Oct 19 14:47:22 ..... finished mapping
+Oct 19 14:47:23 ..... started sorting BAM
+Oct 19 14:47:52 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn GEO_fastq/SRR1039521_1.fastq GEO_fastq/SRR1039521_2.fastq --runThreadN 16 --outFileNamePrefix Aligned_output/SRR1039521_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 14:47:53 ..... started STAR run
+Oct 19 14:47:53 ..... loading genome
+Oct 19 14:48:04 ..... started mapping
+Oct 19 14:49:08 ..... finished mapping
+Oct 19 14:49:09 ..... started sorting BAM
+Oct 19 14:49:40 ..... finished successfully
