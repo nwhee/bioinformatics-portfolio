@@ -36,3 +36,7 @@ There is NO WARRANTY, to the extent permitted by law.
 I cleaned all of the transcripts by deleting content. This was either to remove failed/imperfect commands or to reduce output from commands when it became too long.
 
 Deletions to reduce output will usually be marked with a comment, "Edited for readability" or something similar. Deletions to remove mistakes are generally not marked.
+
+## Data
+
+Original data files can be found at the [original repo](https://github.com/jamiehenzy/01_UNIX_HPC). Modified data files can be provided upon request.
