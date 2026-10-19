@@ -1,0 +1,152 @@
+Last login: Mon Oct 19 16:18:36 on ttys002
+(base) jonathanding@Jonathans-MacBook-Air-3 ~ % ssh ding.jo@login.explorer.northeastern.edu
+ding.jo@login.explorer.northeastern.edu's password: 
+Last login: Mon Oct 19 16:02:15 2026 from 10.110.110.4
+    _______  __ ____  __    ____  ____  __________
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|
+
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+
+[ding.jo@explorer-02 ~]$ srun --pty /bin/bash
+srun: job 11233310 queued and waiting for resources
+srun: job 11233310 has been allocated resources
+[ding.jo@c0610 ~]$ cd /courses/BIOL2406.202710/students/ding.jo/
+[ding.jo@c0610 ding.jo]$ # Use head on each of the files
+[ding.jo@c0610 ding.jo]$ cd Data/02_Explore/
+[ding.jo@c0610 02_Explore]$ head Genomes/GCF_000840245.1_ViralProj14204_genomic.fna 
+>NC_001416.1 Enterobacteria phage lambda, complete genome
+GGGCGGCGACCTCGCGGGTTTTCGCTATTTATGAAAATTTTCCGGTTTAAGGCGTTTCCGTTCTTCTTCGTCATAACTTA
+ATGTTTTTATTTAAAATACCCTCTGAAAAGAAAGGAAACGACAGGTGCTGAAAGCGAGGCTTTTTGGCCTCTGTCGTTTC
+CTTTCTCTGTTTTTGTCCGTGGAATGAACAATGGAAGTCAACAAAAAGCAGCTGGCTGACATTTTCGGTGCGAGTATCCG
+TACCATTCAGAACTGGCAGGAACAGGGAATGCCCGTTCTGCGAGGCGGTGGCAAGGGTAATGAGGTGCTTTATGACTCTG
+CCGCCGTCATAAAATGGTATGCCGAAAGGGATGCTGAAATTGAGAACGAAAAGCTGCGCCGGGAGGTTGAAGAACTGCGG
+CAGGCCAGCGAGGCAGATCTCCAGCCAGGAACTATTGAGTACGAACGCCATCGACTTACGCGTGCGCAGGCCGACGCACA
+GGAACTGAAGAATGCCAGAGACTCCGCTGAAGTGGTGGAAACCGCATTCTGTACTTTCGTGCTGTCGCGGATCGCAGGTG
+AAATTGCCAGTATTCTCGACGGGCTCCCCCTGTCGGTGCAGCGGCGTTTTCCGGAACTGGAAAACCGACATGTTGATTTC
+CTGAAACGGGATATCATCAAAGCCATGAACAAAGCAGCCGCGCTGGATGAACTGATACCGGGGTTGCTGAGTGAATATAT
+[ding.jo@c0610 02_Explore]$ head Genomes/reads_1.fq 
+@r1
+TGAATGCGAACTCCGGGACGCTCAGTAATGTGACGATAGCTGAAAACTGTACGATAAACNGTACGCTGAGGGCAGAAAAAATCGTCGGGGACATTNTAAAGGCGGCGAGCGCGGCTTTTCCG
++
++"@6<:27(F&5)9)"B:%B+A-%5A?2$HCB0B+0=D<7E/<.03#!.F77@6B==?C"7>;))%;,3-$.A06+<-1/@@?,26">=?*@'0;$:;??G+:#+(A?9+10!8!?()?7C>
+@r2
+NTTNTGATGCGGGCTTGTGGAGTTCAGCCGATCTGACTTATGTCATTACCTATGAAATGTGAGGACGCTATGCCTGTACCAAATCCTACAATGCCGGTGAAAGGTGCCGGGATCACCCTGTGGGTTTATAAGGGGATCGGTGACCCCTACGCGAATCCGCTTTCAGACGTTGACTGGTCGCGTCTGGCAAAAGTTAAAGACCTGACGCCCGGCGAACTGACCGCTGAGNCCTATGACGACAGCTATCTCGATGATGAAGATGCAGACTGGACTGC
++
+(#!!'+!$""%+(+)'%)%!+!(&++)''"#"#&#"!'!("%'""("+&%$%*%%#$%#%#!)*'(#")(($&$'&%+&#%*)*#*%*')(%+!%%*"$%"#+)$&&+)&)*+!"*)!*!("&&"*#+"&"'(%)*("'!$*!!%$&&&$!!&&"(*"$&"#&!$%'%"#)$#+%*+)!&*)+(""#!)!%*#"*)*')&")($+*%%)!*)!('(%""+%"$##"#+(('!*(($*'!"*('"+)&%#&$+('**$$&+*&!#%)')'(+(!%+
+@r3
+ATCGCCCGCAGACACCTTCACGCTGGACTGTTTCGGCTTTTACAGCGTCGCTTCATAATCCTTTTTCGCCGCCGCCATCAGCGTGTTGTAATCCGCCTGCAGGATTTTCCCGTCTTTCNGTGCCTTGNTCAGTTCTTCCTGACGGGCGGTATATTTCTGCAGCGGCGTCTGCAGCCGTTCGTNAGCCTTCTGCGCCTCTTCGGTATATTTCAGCCGTGACGCTTCGGTATCGCTCCGCTGCTGCGCATTTTTCTCCTCTTGAGTCTGCTGCTCAGCCTTCTTTCGGGCGGCTTCAAGCGCAAGACGGGCCTTTTCACGATCATCCCAGTAACGCGCCC
+[ding.jo@c0610 02_Explore]$ head Genomes/reads_2.fq 
+@r1
+NAACGTCAGCGGAAGCACCACTATCTGGCGATCAAAAGGATGGTCATCGGTCACGGTGACAGTACGGGTACCTGACGGCCAGTCCACACTGCTTTCACGCTGGCGCGGNAAAGCCGCGCTCGCCGCCTNTACNATGTCCCCGACGATTTTTTCCGCCCTCAGCGTACCGTTTATCGTACAGTTTTCAGCTATCGTCAC
++
+&?$F&9AC8H49@5<*>=E;2/G+;9?&8D.;E!2:0B/)++#F-><E,-/&F:&/#B=*'C?@$0!+#1?.ABC?:-?9GA?,11.2>3$&@-'6;!6@D?&#*E:C#9-4&8?"))H>H9-->((E99;:@::1=1-!+$@$8+#@%(<B,+%6!>@0G*D5A'(>9AC<;@01:7@:@0D&D=@:>7"1)D+9+B
+@r2
+GCANTCCAGTCTGCATCTTCATCATCGAGATAGCTGTCGTCATAGGACTCAGCGGTCAGTTCGCCGGGCGTCAGGTCTTTAACTTTTGCCAGACGCGACCAGTCAACGTCTGAAAGCGGATTCGCGTAAGGGTCACCGCTCCCCTTATAAACCCACAGGGTGGTCCCGGCACCTTTCACCGGCATTAT
++
+%-&7%D%5D@%:9.#F(5B/(;"=C@G5"/-7248$;D7%7-A8&=A1;=1$('(9)E,'(2>=!98A7$652">"+G<9=>7<64@#&$<58(*$*&!2)*BE';$@69)EAG*+?5C8E@'>02$E755%(0$E0H7=9HH*7182)((#A2=>E=%DD79106=.*3"1(6E.HB44-##)F$<2
+@r3
+CGCGGGCGCGTTACTGGGATGATNGNGAAAAGGCCCGTCTTGCGCTTGAAGCCGCCCGAAAGAAGNC
+[ding.jo@c0610 02_Explore]$ # Determine the length of the lambda phage genome
+[ding.jo@c0610 02_Explore]$ grep -v ">" Genomes/GCF_000840245.1_ViralProj14204_genomic.fna | tr -d '\n' | wc -c
+48502
+[ding.jo@c0610 02_Explore]$ # Determine number of sequencing reads in each fastq file
+[ding.jo@c0610 02_Explore]$ grep -c "^@r" Genomes/reads_1.fq 
+10000
+[ding.jo@c0610 02_Explore]$ grep -c "^@r" Genomes/reads_2.fq 
+10000
+# Load bowtie2
+[ding.jo@c0610 02_Explore]$ module load bowtie2/2.5.4 
+[ding.jo@c0610 02_Explore]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0   2) bowtie2/2.5.4  
+# Indexing a reference genome
+[ding.jo@c0610 02_Explore]$ bowtie2-build Genomes/GCF_000840245.1_ViralProj14204_genomic.fna lambda_virus
+Settings:
+  Output files: "lambda_virus.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+# Edited for clarity
+[ding.jo@c0610 02_Explore]$ # Aligning example reads
+[ding.jo@c0610 02_Explore]$ bowtie2 -x lambda_virus Genomes/reads_1.fq -S eg1.sam
+10000 reads; of these:
+  10000 (100.00%) were unpaired; of these:
+    596 (5.96%) aligned 0 times
+    9404 (94.04%) aligned exactly 1 time
+    0 (0.00%) aligned >1 times
+94.04% overall alignment rate
+[ding.jo@c0610 02_Explore]$ # See first few lines of SAM output
+[ding.jo@c0610 02_Explore]$ head eg1.sam 
+@HD	VN:1.5	SO:unsorted	GO:query
+@SQ	SN:NC_001416.1	LN:48502
+@PG	ID:bowtie2	PN:bowtie2	VN:2.5.4	CL:"/shared/EL9/explorer/bowtie2/2.5.4/src/bowtie2-2.5.4-linux-x86_64/bowtie2-align-s --wrapper basic-0 -x lambda_virus Genomes/reads_1.fq -S eg1.sam"
+r1	0	NC_001416.1	18401	42	122M	*	0	0	TGAATGCGAACTCCGGGACGCTCAGTAATGTGACGATAGCTGAAAACTGTACGATAAACNGTACGCTGAGGGCAGAAAAAATCGTCGGGGACATTNTAAAGGCGGCGAGCGCGGCTTTTCCG	+"@6<:27(F&5)9)"B:%B+A-%5A?2$HCB0B+0=D<7E/<.03#!.F77@6B==?C"7>;))%;,3-$.A06+<-1/@@?,26">=?*@'0;$:;??G+:#+(A?9+10!8!?()?7C>	AS:i:-5	XN:i:0	XM:i:3	XO:i:0	XG:i:0	NM:i:3	MD:Z:59G13G21G2YT:Z:UU
+r2	0	NC_001416.1	8886	42	275M	*	0	0	NTTNTGATGCGGGCTTGTGGAGTTCAGCCGATCTGACTTATGTCATTACCTATGAAATGTGAGGACGCTATGCCTGTACCAAATCCTACAATGCCGGTGAAAGGTGCCGGGATCACCCTGTGGGTTTATAAGGGGATCGGTGACCCCTACGCGAATCCGCTTTCAGACGTTGACTGGTCGCGTCTGGCAAAAGTTAAAGACCTGACGCCCGGCGAACTGACCGCTGAGNCCTATGACGACAGCTATCTCGATGATGAAGATGCAGACTGGACTGC	(#!!'+!$""%+(+)'%)%!+!(&++)''"#"#&#"!'!("%'""("+&%$%*%%#$%#%#!)*'(#")(($&$'&%+&#%*)*#*%*')(%+!%%*"$%"#+)$&&+)&)*+!"*)!*!("&&"*#+"&"'(%)*("'!$*!!%$&&&$!!&&"(*"$&"#&!$%'%"#)$#+%*+)!&*)+(""#!)!%*#"*)*')&")($+*%%)!*)!('(%""+%"$##"#+(('!*(($*'!"*('"+)&%#&$+('**$$&+*&!#%)')'(+(!%+	AS:i:-14	XN:i:0	XM:i:8	XO:i:0	XG:i:0	NM:i:8	MD:Z:0A0C0G0A108C23G9T81T46	YT:Z:UU
+r3	16	NC_001416.1	11599	42	338M	*	0	0	GGGCGCGTTACTGGGATGATCGTGAAAAGGCCCGTCTTGCGCTTGAAGCCGCCCGAAAGAAGGCTGAGCAGCAGACTCAAGAGGAGAAAAATGCGCAGCAGCGGAGCGATACCGAAGCGTCACGGCTGAAATATACCGAAGAGGCGCAGAAGGCTNACGAACGGCTGCAGACGCCGCTGCAGAAATATACCGCCCGTCAGGAAGAACTGANCAAGGCACNGAAAGACGGGAAAATCCTGCAGGCGGATTACAACACGCTGATGGCGGCGGCGAAAAAGGATTATGAAGCGACGCTGTAAAAGCCGAAACAGTCCAGCGTGAAGGTGTCTGCGGGCGAT	7F$%6=$:9B@/F'>=?!D?@0(:A*)7/>9C>6#1<6:C(.CC;#.;>;2'$4D:?&B!>689?(0(G7+0=@37F)GG=>?958.D2E04C<E,*AD%G0.%$+A:'H;?8<72:88?E6((CF)6DF#.)=>B>D-="C'B080E'5BH"77':"@70#4%A5=6.2/1>;9"&-H6)=$/0;5E:<8G!@::1?2DC7C*;@*#.1C0.D>H/20,!"C-#,6@%<+<D(AG-).?&#0.00'@)/F8?B!&"170,)>:?<A7#1(A@0E#&A.*DC.E")AH"+.,5,2>5"2?:G,F"D0B8D-6$65D<D!A/38860.*4;4B<*31?6	AS:i:-22	XN:i:0	XM:i:8	XO:i:0	XG:i:0	NM:i:8	MD:Z:80C4C16A52T23G30A8T76A41	YT:Z:UU
+r4	0	NC_001416.1	40075	42	184M	*	0	0	GGGCCAATGCGCTTACTGATGCGGAATTACGCCGTAAGGCCGCAGATGAGCTTGTCCATATGACTGCGAGAATTAACNGTGGTGAGGCGATCCCTGAACCAGTAAAACAACTTCCTGTCATGGGCGGTAGACCTCTAAATCGTGCACAGGCTCTGGCGAAGATCGCAGAAATCAAAGCTAAGTT	(=8B)GD04*G%&4F,1'A>.C&7=F$,+#6!))43C,5/5+)?-/0>/D3=-,2/+.1?@->;)00!'3!7BH$G)HG+ADC'#-9F)7<7"$?&.>0)@5;4,!0-#C!15CF8&HB+B==H>7,/)C5)5*+(F5A%D,EA<(>G9E0>7&/E?4%;#'92)<5+@7:A.(BG@BG86@.G	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:77C106	YT:Z:UU
+r5	0	NC_001416.1	48010	42	138M	*	0	0	GTCAGGAAAGTGGTAAAACTGCAACTCAATTACTGCAATGCCCTCGTAATTAAGTGAATTTACAATATCGTCCTGTTCGGAGGGAAGAACGCGGGATGTTCATTCTTCATCACTTTTAATTGATGTATATGCTCTCTT	9''%<D)A03E1-*7=),:F/0!6,D9:H,<9D%:0B(%'E,(8EFG$E89B$27G8F*2+4,-!,0D5()&=(FGG:5;3*@/.0F-G#5#3->('FDFEG?)5.!)"AGADB3?6(@H(:B<>6!>;>6>G,."?%	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:138	YT:Z:UU
+r6	16	NC_001416.1	41607	42	72M2D119M	*	0	TCGATTTGCAAATACCGGAACATCTCGGTAACTGCATATTCTGCATTAAAAAATCAACGCAAAAAATCGGACGCCTGCAAAGATGAGGAGGGATTGCAGCGTGTTTTTAATGAGGTCATCACGGGATNCCATGTGCGTGACGGNCATCGGGAAACGCCAAAGGAGATTATGTACCGAGGAAGAATGTCGCT	1H#G;H"$E*E#&"*)2%66?=9/9'=;4)4/>@%+5#@#$4A*!<D=="8#1*A9BA=:(1+#C&.#(3#H=9E)AC*5,AC#E'536*2?)H14?>9'B=7(3H/B:+A:8%1-+#(E%&$$&14"76D?>7(&20H5%*&CF8!G5B+A4F$7(:"'?0$?G+$)B-?2<0<F=D!38BH,%=8&5@+	AS:i:-13	XN:i:0	XM:i:2	XO:i:1	XG:i:2	NM:i:4	MD:Z:72^TT55C15A47	YT:Z:UU
+r7	16	NC_001416.1	4692	42	143M	*	0	0	TCAGCCGGACGCGGGCGCTGCAGCCGTACTCGGGGATGACCGGTTACAACGGCATTATCGCCCGTCTGCAACAGGCTGCCAGCGATCCGATGGTGGACAGCATTCTGCTCGATATGGACANGCCCGGCGGGATGGTGGCGGGG	-"/@*7A0)>2,AAH@&"%B)*5*23B/,)90.B@%=FE,E063C9?,:26$-0:,.,1849'4.;F>FA;76+5&$<C":$!A*,<B,<)@<'85D%C*:)30@85;?.B$05=@95DCDH<53!8G:F:B7/A.E':434>	AS:i:-6	XN:i:0	XM:i:2	XO:i:0	XG:i:0	NM:i:2	MD:Z:98G21C22	YT:Z:UU
+[ding.jo@c0610 02_Explore]$ # Paired end example
+[ding.jo@c0610 02_Explore]$ bowtie2 -x lambda_virus -1 Genomes/reads_1.fq -2 Genomes/reads_2.fq -S eg2.sam
+10000 reads; of these:
+  10000 (100.00%) were paired; of these:
+    834 (8.34%) aligned concordantly 0 times
+    9166 (91.66%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    834 pairs aligned concordantly 0 times; of these:
+      42 (5.04%) aligned discordantly 1 time
+    ----
+    792 pairs aligned 0 times concordantly or discordantly; of these:
+      1584 mates make up the pairs; of these:
+        1005 (63.45%) aligned 0 times
+        579 (36.55%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+94.97% overall alignment rate
+[ding.jo@c0610 02_Explore]$ # Using SAMtools/BCFtools downstream
+[ding.jo@c0610 02_Explore]$ # load modules
+[ding.jo@c0610 02_Explore]$ module load samtools/1.21 
+[ding.jo@c0610 02_Explore]$ module load bcftools/1.21 
+[ding.jo@c0610 02_Explore]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0   2) bowtie2/2.5.4   3) samtools/1.21   4) bcftools/1.21  
+[ding.jo@c0610 02_Explore]$ # convert SAM paired-end file to BAM file
+[ding.jo@c0610 02_Explore]$ samtools view -bS eg2.sam > eg2.bam
+[ding.jo@c0610 02_Explore]$ ls
+Aligned_output  Genomes             lambda_virus.4.bt2
+eg1.sam         GEO_fastq           lambda_virus.rev.1.bt2
+eg2.bam         lambda_virus.1.bt2  lambda_virus.rev.2.bt2
+eg2.sam         lambda_virus.2.bt2
+GenomeDir       lambda_virus.3.bt2
+[ding.jo@c0610 02_Explore]$ # convert BAM file to sorted BAM file for variants
+[ding.jo@c0610 02_Explore]$ samtools sort eg2.bam -o eg2.sorted.bam
+[ding.jo@c0610 02_Explore]$ ls
+Aligned_output  eg2.sorted.bam  lambda_virus.1.bt2  lambda_virus.rev.1.bt2
+eg1.sam         GenomeDir       lambda_virus.2.bt2  lambda_virus.rev.2.bt2
+eg2.bam         Genomes         lambda_virus.3.bt2
+eg2.sam         GEO_fastq       lambda_virus.4.bt2
+# generate variant calls in VCF format
+[ding.jo@c0610 02_Explore]$ bcftools mpileup -f Genomes/GCF_000840245.1_ViralProj14204_genomic.fna eg2.sorted.bam | bcftools view -Ov - > eg2.raw.bcf
+[mpileup] 1 samples in 1 input files
+[mpileup] maximum number of reads per input file set to -d 250
+[ding.jo@c0610 02_Explore]$ # view variants
+[ding.jo@c0610 02_Explore]$ bcftools view eg2.raw.bcf > variants.txt
+[ding.jo@c0610 02_Explore]$ less variants.txt 
+[ding.jo@c0610 02_Explore]$ less -S variants.txt 
+[ding.jo@c0610 02_Explore]$ 
