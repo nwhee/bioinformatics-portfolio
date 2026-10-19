@@ -1,0 +1,324 @@
+Last login: Mon Oct 19 17:38:46 on ttys002
+(base) jonathanding@Jonathans-MacBook-Air-3 ~ % ssh ding.jo@login.explorer.northeastern.edu
+ding.jo@login.explorer.northeastern.edu's password: 
+Last login: Thu Oct 15 11:50:38 2026 from 10.110.207.80
+    _______  __ ____  __    ____  ____  __________ 
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/ 
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|  
+                                                  
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+
+[ding.jo@explorer-01 ~]$ srun --pty /bin/bash
+srun: job 11238548 queued and waiting for resources
+srun: job 11238548 has been allocated resources
+[ding.jo@c0586 ~]$ cd /courses/BIOL2406.202710/students/ding.jo/
+[ding.jo@c0586 ding.jo]$ cd Data/02_Explore/
+[ding.jo@c0586 02_Explore]$ cd Sea_cuke/
+[ding.jo@c0586 Sea_cuke]$ ls
+Ppar_tinygenome.fna.gz    SRR6805882.tiny.fastq.gz  SRR6805885.tiny.fastq.gz
+SRR6805880.tiny.fastq.gz  SRR6805883.tiny.fastq.gz
+SRR6805881.tiny.fastq.gz  SRR6805884.tiny.fastq.gz
+# Unzip files
+[ding.jo@c0586 Sea_cuke]$ gunzip *.gz
+[ding.jo@c0586 Sea_cuke]$ ls
+Ppar_tinygenome.fna    SRR6805882.tiny.fastq  SRR6805885.tiny.fastq
+SRR6805880.tiny.fastq  SRR6805883.tiny.fastq
+SRR6805881.tiny.fastq  SRR6805884.tiny.fastq
+[ding.jo@c0586 Sea_cuke]$ # Header information of the genome sequence
+[ding.jo@c0586 Sea_cuke]$ grep ">" Ppar_tinygenome.fna | head -n 5
+>KN893585.1 Parastichopus parvimensis isolate Sea Cucumber 01 unplaced genomic scaffold Scaffold11424, whole genome shotgun sequence
+>KN897506.1 Parastichopus parvimensis isolate Sea Cucumber 01 unplaced genomic scaffold Scaffold15978, whole genome shotgun sequence
+>JXUT01146130.1 Apostichopus parvimensis isolate Sea Cucumber 01 contig_146132, whole genome shotgun sequence
+>KN897010.1 Parastichopus parvimensis isolate Sea Cucumber 01 unplaced genomic scaffold Scaffold15312, whole genome shotgun sequence
+>KN894258.1 Parastichopus parvimensis isolate Sea Cucumber 01 unplaced genomic scaffold Scaffold12126, whole genome shotgun sequence
+[ding.jo@c0586 Sea_cuke]$ # what the read files look like
+[ding.jo@c0586 Sea_cuke]$ head SRR6805880.tiny.fastq 
+@SRR6805880.2151832 OCD6D:00225:02960 length=80
+TGCAGAAGGCATGACCTTACCTACTGAATAAAAGATGAGACACCTTCTCATTGGCCAAGAAGAAACAACACTCTATTACA
++
+47:7775<59999995:6;;5:7664621111*/52245554404/33533/3/30436724461./,.:79999:4:9:
+@SRR6805880.576388 9F8KO:05533:11649 length=80
+TGCAGTCGTAATCTAGGAACACACCTACGGGATTATTTACTATTTTACAATCCATAGTCGGAGTCTACAAACAGTTACCA
++
+135445878868?;:7474889//+/665628958::2788:>;;09:9556-315447817999::;::28///27:18
+@SRR6805880.501486 9F8KO:05578:13178 length=80
+TGCAGCAAGACCGTAGATCTGTCAAACGCAAAGCTTTAGCGAGCTCTCTAAGTAGCTTGAGAGGTCTGAAGAGAGCAGTG
+[ding.jo@c0586 Sea_cuke]$ head SRR6805881.tiny.fastq 
+@SRR6805881.2151832 7BT9W:08109:13228 length=80
+TGCAGGTCAGAAGAATTTGTACGGTATCGTTCTGGCCAGTGACGGAGCTAGGGGTATTGGTCAGGGGGGCGAGAATGTTC
++
+.3255158>;=7=>6<=098:8818;:::<5;<>19289;<<<=5;;;96666+59:6;6;<=<===A*;;;;;4;;<19
+@SRR6805881.576388 5GD86:08270:07332 length=80
+TGCAGTAAGCTTTCTTAATTACTATATTCGACCTTTACAGAATTCATTTCTGTAGTGAATTCTCAACCATCTCAAAGAGT
++
+6;;:;;;688=>4<:6=6>6;:::;;>7><<<7<<4=B=<<7<6=:88/8;;;:::<<4:5:<<<5;5;<><;;;3;;::
+@SRR6805881.501486 5GD86:06850:06440 length=80
+TGCAGGTACGTAATATCTTCGTAGCATATAAGAACCCAGTCTGGACAATCTTCTATAAAGTATACTTTCATGTCATGCTT
+[ding.jo@c0586 Sea_cuke]$ # How many reads are contained in the fastq files
+[ding.jo@c0586 Sea_cuke]$ grep -c "^@S" *.fastq 
+SRR6805880.tiny.fastq:1000
+SRR6805881.tiny.fastq:1000
+SRR6805882.tiny.fastq:1000
+SRR6805883.tiny.fastq:1000
+SRR6805884.tiny.fastq:1000
+SRR6805885.tiny.fastq:1000
+[ding.jo@c0586 Sea_cuke]$ # Raw read quality control
+[ding.jo@c0586 Sea_cuke]$ # load fastqc module
+[ding.jo@c0586 Sea_cuke]$ module load fastqc/0.12.1 
+Loading fastqc/0.12.1
+  Loading requirement: OpenJDK/22.0.2 perl/5.40.0
+[ding.jo@c0586 Sea_cuke]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0   2) OpenJDK/22.0.2   3) perl/5.40.0   4) fastqc/0.12.1  
+
+Key:
+auto-loaded  
+[ding.jo@c0586 Sea_cuke]$ fastqc SRR6805880.tiny.fastq 
+null
+Started analysis of SRR6805880.tiny.fastq
+Approx 100% complete for SRR6805880.tiny.fastq
+Analysis complete for SRR6805880.tiny.fastq
+[ding.jo@c0586 Sea_cuke]$ ls
+Ppar_tinygenome.fna          SRR6805880.tiny_fastqc.zip  SRR6805883.tiny.fastq
+SRR6805880.tiny.fastq        SRR6805881.tiny.fastq       SRR6805884.tiny.fastq
+SRR6805880.tiny_fastqc.html  SRR6805882.tiny.fastq       SRR6805885.tiny.fastq
+[ding.jo@c0586 Sea_cuke]$ # run fastqc on the remaining files
+[ding.jo@c0586 Sea_cuke]$ fastqc SRR680588*
+null
+text/html
+Failed to process SRR6805880.tiny_fastqc.html
+uk.ac.babraham.FastQC.Sequence.SequenceFormatException: ID line didn't start with '@' at line 1
+	at uk.ac.babraham.FastQC.Sequence.FastQFile.readNext(FastQFile.java:163)
+	at uk.ac.babraham.FastQC.Sequence.FastQFile.<init>(FastQFile.java:93)
+	at uk.ac.babraham.FastQC.Sequence.SequenceFactory.getSequenceFile(SequenceFactory.java:106)
+	at uk.ac.babraham.FastQC.Sequence.SequenceFactory.getSequenceFile(SequenceFactory.java:62)
+	at uk.ac.babraham.FastQC.AnalStarted analysis of SRR6805884.tiny.fastq
+# Edited for clarity
+Approx 100% complete for SRR6805884.tiny.fastq
+Analysis complete for SRR6805884.tiny.fastq
+Started analysis of SRR6805885.tiny.fastq
+Approx 100% complete for SRR6805885.tiny.fastq
+Analysis complete for SRR6805885.tiny.fastq
+[ding.jo@c0586 Sea_cuke]$ less SRR6805880.tiny.fastq 
+[ding.jo@c0586 Sea_cuke]$ # Trimming to remove adapters
+[ding.jo@c0586 Sea_cuke]$ # load cutadapt
+[ding.jo@c0586 Sea_cuke]$ module load anaconda3/2024.06
+[ding.jo@c0586 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/cutadapt_env/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # test cutadapt
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ cutadapt -g TGCAG SRR6805880.tiny.fastq -o SRR6805880.tiny_trimmed.fastq
+This is cutadapt 5.2 with Python 3.13.16
+Command line parameters: -g TGCAG SRR6805880.tiny.fastq -o SRR6805880.tiny_trimmed.fastq
+Processing single-end reads on 1 core ...
+Done           00:00:00         1,000 reads @  10.1 µs/read;   5.92 M reads/minute
+
+=== Summary ===
+
+Total reads processed:                   1,000
+Reads with adapters:                     1,000 (100.0%)
+Reads written (passing filters):         1,000 (100.0%)
+
+Total basepairs processed:        80,000 bp
+Total written (filtered):         75,000 bp (93.8%)
+
+=== Adapter 1 ===
+
+Sequence: TGCAG; Type: regular 5'; Length: 5; Trimmed: 1000 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-5 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+5	1000	1.0	0	1000
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # use cutadapt on each file with a for loop
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ for filename in *.tiny.fastq
+> do
+> 
+> base=$(basename $filename .tiny.fastq)
+> echo ${base}
+> 
+> cutadapt -g TGCAG ${base}.tiny.fastq -o ${base}.tiny_trimmed.fastq 
+> 
+> done
+SRR6805880
+This is cutadapt 5.2 with Python 3.13.16
+Command line parameters: -g TGCAG SRR6805880.tiny.fastq -o SRR6805880.tiny_trimmed.fastq
+Processing single-end reads on 1 core ...
+Done           00:00:00         1,000 reads @  13.5 µs/read;   4.46 M reads/minute
+
+=== Summary ===
+
+Total reads processed:                   1,000
+Reads with adapters:                     1,000 (100.0%)
+Reads written (passing filters):         1,000 (100.0%)
+
+Total basepairs processed:        80,000 bp
+Total written (filtered):         75,000 bp (93.8%)
+
+=== Adapter 1 ===
+
+Sequence: TGCAG; Type: regular 5'; Length: 5; Trimmed: 1000 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-5 bp: 0
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+5	1000	1.0	0	1000
+# Edited for clarity
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # check if trimmed files are there
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ ls *trimmed*
+SRR6805880.tiny_trimmed.fastq  SRR6805883.tiny_trimmed.fastq
+SRR6805881.tiny_trimmed.fastq  SRR6805884.tiny_trimmed.fastq
+SRR6805882.tiny_trimmed.fastq  SRR6805885.tiny_trimmed.fastq
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ less SRR6805880.tiny_trimmed.fastq 
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # Building an index of our genome
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ module load bowtie2/2.5.4 
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0     3) perl/5.40.0     5) anaconda3/2024.06  
+ 2) OpenJDK/22.0.2   4) fastqc/0.12.1   6) bowtie2/2.5.4      
+
+Key:
+auto-loaded  
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # running bowtie2
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ bowtie2-build Ppar_tinygenome.fna Ppar_tinygenome
+Settings:
+  Output files: "Ppar_tinygenome.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+  Total time for backward call to driver() for mirror index: 00:00:46
+# Edited for clarity
+Renaming Ppar_tinygenome.3.bt2.tmp to Ppar_tinygenome.3.bt2
+Renaming Ppar_tinygenome.4.bt2.tmp to Ppar_tinygenome.4.bt2
+Renaming Ppar_tinygenome.1.bt2.tmp to Ppar_tinygenome.1.bt2
+Renaming Ppar_tinygenome.2.bt2.tmp to Ppar_tinygenome.2.bt2
+Renaming Ppar_tinygenome.rev.1.bt2.tmp to Ppar_tinygenome.rev.1.bt2
+Renaming Ppar_tinygenome.rev.2.bt2.tmp to Ppar_tinygenome.rev.2.bt2
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # move new files to new folder
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ mkdir index
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ mv *.bt2 index
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ ls
+'base=SRR6805885'                SRR6805882.tiny_fastqc.html
+ cutadapt                        SRR6805882.tiny_fastqc.zip
+ done                            SRR6805882.tiny_trimmed.fastq
+ echoSRR6805885                  SRR6805883.tiny.fastq
+ index                           SRR6805883.tiny_fastqc.html
+ Ppar_tinygenome.fna             SRR6805883.tiny_fastqc.zip
+ SRR6805880.tiny.fastq           SRR6805883.tiny_trimmed.fastq
+ SRR6805880.tiny_fastqc.html     SRR6805884.tiny.fastq
+ SRR6805880.tiny_fastqc.zip      SRR6805884.tiny_fastqc.html
+ SRR6805880.tiny_trimmed.fastq   SRR6805884.tiny_fastqc.zip
+ SRR6805881.tiny.fastq           SRR6805884.tiny_trimmed.fastq
+ SRR6805881.tiny_fastqc.html     SRR6805885.tiny.fastq
+ SRR6805881.tiny_fastqc.zip      SRR6805885.tiny_fastqc.html
+ SRR6805881.tiny_trimmed.fastq   SRR6805885.tiny_fastqc.zip
+ SRR6805882.tiny.fastq           SRR6805885.tiny_trimmed.fastq
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ ls index
+Ppar_tinygenome.1.bt2  Ppar_tinygenome.3.bt2  Ppar_tinygenome.rev.1.bt2
+Ppar_tinygenome.2.bt2  Ppar_tinygenome.4.bt2  Ppar_tinygenome.rev.2.bt2
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # map reads to the genome
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ for filename in *.tiny_trimmed.fastq
+> do
+> 
+> base=$(basename $filename .tiny_trimmed.fastq)
+> echo ${base}
+> 
+> bowtie2 -x index/Ppar_tinygenome -U ${base}.tiny_trimmed.fastq -S ${base}.sam
+> 
+> done
+SRR6805880
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    782 (78.20%) aligned 0 times
+    111 (11.10%) aligned exactly 1 time
+    107 (10.70%) aligned >1 times
+21.80% overall alignment rate
+SRR6805881
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    782 (78.20%) aligned 0 times
+    109 (10.90%) aligned exactly 1 time
+    109 (10.90%) aligned >1 times
+21.80% overall alignment rate
+SRR6805882
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    772 (77.20%) aligned 0 times
+    116 (11.60%) aligned exactly 1 time
+    112 (11.20%) aligned >1 times
+22.80% overall alignment rate
+# Edited for clarity
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # look at one of the SAM files
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ less SRR6805880.sam 
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ # sam to bam file conversion
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ module load samtools/1.21 
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ for filename in *.sam
+do
+
+  base=$(basename $filename .sam)
+  echo ${base}
+  
+  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam
+
+done
+SRR6805880
+SRR6805881
+SRR6805882
+SRR6805883
+SRR6805884
+SRR6805885
+(/courses/BIOL2406.202710/shared/cutadapt_env) [ding.jo@c0586 Sea_cuke]$ conda deactivate
+[ding.jo@c0586 Sea_cuke]$ # Genotype likelihoods
+[ding.jo@c0586 Sea_cuke]$ # create text file with .bam file names listed
+[ding.jo@c0586 Sea_cuke]$ ls *.bam > bam.filelist
+[ding.jo@c0586 Sea_cuke]$ cat bam.filelist 
+SRR6805880.bam
+SRR6805881.bam
+SRR6805882.bam
+SRR6805883.bam
+SRR6805884.bam
+SRR6805885.bam
+# Activate angsd
+[ding.jo@c0586 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/angsd_env/
+# Run angsd
+(/courses/BIOL2406.202710/shared/angsd_env) [ding.jo@c0586 Sea_cuke]$ angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1
+	-> angsd version: 0.940-dirty (htslib: 1.24) build(Dec 15 2024 09:11:59)
+	-> angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1 
+	-> Inputtype is BAM/CRAM
+[multiReader] 6 samples in 6 input files
+	-> SNP-filter using a pvalue: 1.000000e-02 correspond to 6.634897 likelihood units
+	-> Parsing 6 number of samples 
+No data for chromoId=0 chromoname=KN893585.1
+This could either indicate that there really is no data for this chromosome
+Or it could be problem with this program regSize=0 notDone=6
+	-> Printing at chr: KN885472.1 pos:10691 chunknumber 100 contains 448 sites     -> Printing at chr: JXUT01148291.1 pos:1939 chunknumber 200 contains 73 sites   -> Printing at chr: KN896166.1 pos:9953 chunknumber 300 contains 74 sites       -> Printing at chr: KN884976.1 pos:46465 chunknumber 400 contains 150 sites     -> Printing at chr: KN886318.1 pos:10526 chunknumber 500 contains 75 sites
+	-> Done reading data waiting for calculations to finish
+	-> Done waiting for threads
+	-> Output filenames:
+		->"genotype_likelihoods.arg"
+		->"genotype_likelihoods.mafs.gz"
+	-> Mon Oct 19 19:20:24 2026
+	-> Arguments and parameters for all analysis are located in .arg file
+	-> Total number of sites analyzed: 71450
+	-> Number of sites retained after filtering: 9 
+	[ALL done] cpu-time used =  1.02 sec
+	[ALL done] walltime used =  1.00 sec
+(/courses/BIOL2406.202710/shared/angsd_env) [ding.jo@c0586 Sea_cuke]$ 
