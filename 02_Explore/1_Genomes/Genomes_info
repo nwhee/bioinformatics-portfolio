@@ -1,0 +1,32 @@
+B burgdorferei (Lyme disease bacterium); GCF_000008685.2
+- Size of genome: 1.5 Mb
+- Structure: linear genome, 1 chromosome, 21 plasmids (9 circular, 12 linear)
+- Estimated number of protein-coding genes: 1,456
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000008685.2/
+
+C elegans (lab worm); GCF_000002985.6
+- Size of genome: 100.3 Mb
+- Structure: linear genome, 6 chromosomes
+- Estimated number of protein-coding genes: 19,983
+- Where to access the genome sequence: 	https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002985.6/
+
+Parastichopus parvimensis (sea cucumber, in course data directory)
+- Size of genome: 22606 bp
+- Structure: linear
+- Estimated number of protein-coding genes:
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/nuccore/KN893585.1/
+
+Homo sapiens; GCA_000001405.29
+- Size of genome: 3.1 Gb
+- Structure: linear, 23 pairs of chromosomes
+- Estimated number of protein-coding genes: 20,076
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/
+https://www.ncbi.nlm.nih.gov/nuccore/2579154619
+
+Lambda phage (a famous virus that infects bacteria); NC_001416.1
+- Size of genome: 48.5 kb
+- Structure: linear, 1 chromosome
+- Estimated number of protein-coding genes: 73
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000840245.1/
+https://www.ncbi.nlm.nih.gov/nuccore/NC_001416.1/
+
