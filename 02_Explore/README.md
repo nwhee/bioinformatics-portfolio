@@ -17,7 +17,9 @@ This directory contains all files and data associated with the Explore tutorial.
 
 3_Variants:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Explore/3_Variants
-- Contains the shell transcript (cleaned and commented) for the exercises from part 3
+- Contains:
+  - the shell transcript (cleaned and commented) for the exercises from part 3
+  - in_class_exercises.txt, which contains the answers for the in_class_exercises
 
 4_Mapping:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Ex
