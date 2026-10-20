@@ -1,0 +1,9 @@
+Raw Read Quality Control
+
+I ran fastqc on two files, SRR1039508_1.fastq and SRR1039509_2.fastq.
+
+For SRR1039508_1.fastq, there was a red flag for sequence duplication levels. Claude said this is context-dependent, and specifically is expected with RNA-seq.
+
+For SRR1039509_2.fastq, there was a red flag for per tile sequence quality. Claude said this merits a closer look. If there are "large blocks or whole stretches of the flow cell with poor quality, that’s more serious", and we do see a patch of red/yellow around position 9. That's also where we see a small spike in per base N content to around 10% and a dip in per base sequence quality (the whiskers, not the boxes). So while most of the sequence is completely fine, that one patch might not be reliable. 
+
+The sequence likely doesn't need to be trimmed. The per base sequence content is slightly more uneven at the beginning, but not by too much.  
