@@ -4,21 +4,28 @@
 
 This directory contains all files and data associated with the Explore tutorial.
 ## Contents and Locations
-<!--
-1_UNIX_transcript.txt:
-- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/1_UNIX_transcript.txt
-- Contains the shell transcript (cleaned and commented) for the tasks from part 1
 
-2_UNIX_transcript.txt:
-- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/2_UNIX
-_transcript.txt
+1_Genomes:
+- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Explore/1_Genomes
+- Contains:
+  - the shell transcript (cleaned and commented) for the tasks from part 1
+  - Genomes_info, which contains information on each genome that was used
+
+2_bowtie2:
+- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Explore/2_bowtie2
 - Contains the shell transcript (cleaned and commented) for the tasks from part 2
 
-3_UNIX_transcript.txt:
-- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/1_UNIX/3_UNIX
-_transcript.txt
+3_Variants:
+- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Explore/3_Variants
 - Contains the shell transcript (cleaned and commented) for the exercises from part 3
--->
+
+4_Mapping:
+- path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Ex
+plore/4_Mapping
+- Contains:
+  - Scripts directory, which contains the scripts, error, and output files from part 4
+  - quality_control.txt, which provides comments on the fastqc analysis of some of the fastq files from part 4 
+
 ## Program Version
 
 GNU bash, version 5.1.8(1)-release (x86_64-redhat-linux-gnu)
