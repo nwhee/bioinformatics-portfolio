@@ -1,0 +1,209 @@
+---
+title: "2_Getting_comfy_in_R.md"
+author: "Jonathan Ding"
+output: html_document
+date: "2026-11-05"
+---
+
+# Exercise 1.1
+
+1. Open Rstudio and perform an arithmetic calculation in the command line.
+``` {r}
+2 + 2
+```
+
+2. Create a numeric vector in the command line containing:
+ - the numbers 2, 9, 3, 8, and 3 and assign this vector to a global variable x.
+ - Perform arithmetic with x.
+ - Convince yourself R works as a calculator, and knows order of operations.
+ - Multiply x by 10, and save the result as a new object named y
+ - Calculate the difference in the sum of the x vector and the sum of the y vector
+``` {r}
+x <- c(2, 9, 3, 8, 3)
+x + 2  # expect (4, 11, 5, 10, 5)
+x + 1 * 3  # expect (5, 12, 6, 11, 6)
+y <- x * 10
+sum(y) - sum(x)
+```
+
+3. Call the help files for the functions ls() and rm()
+ - What are the arguments for the ls() function?
+ - What does the 'sorted' argument do?
+``` {r}
+?ls
+?rm
+```
+ls() takes the arguments name, pos, envir, all.names, pattern, and sorted.
+If sorted is TRUE, then the output from ls() will be sorted alphabetically.
+
+# Exercise 1.2
+
+``` {r}
+# install.packages("ggplot2")
+# library(ggplot2)
+data("iris")
+```
+
+1. How many rows are in the dataset?
+``` {r}
+nrow(iris)
+```
+150 rows
+
+2. What are three distinct ways to figure this out?
+``` {r}
+nrow(iris)
+dim(iris)
+str(iris)
+```
+
+3. How many species of flowers are in the dataset?
+``` {r}
+length(unique(iris$Species))
+```
+3 species of flowers: setosa, versicolor, and virginica
+
+4. What class is iris?
+``` {r}
+class(iris)
+```
+data.frame
+
+5. How many columns does this data frame have? What are their names? 
+``` {r}
+ncol(iris)
+colnames(iris)
+```
+5 columns
+"Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species" 
+
+6. What class did R assign to each column?
+``` {r}
+str(iris)
+```
+All are num, except for "Species", which is Factor.
+
+7. Assign the first flower's petal's width and length to new objects called setosa1.petalwidth and setosa1.petallength
+``` {r}
+setosa1.petalwidth <- iris[1, "Petal.Width"]
+setosa1.petallength <- iris[1, "Petal.Length"]
+```
+
+8. Calculate the approximate area of the petal of the first flower, setosa1 (assume petal area can be approximated by a rectangle).
+``` {r}
+setosa1.petalwidth * setosa1.petallength
+```
+0.28
+
+9. Calculate the petal area of each flower in the iris dataset and assign this to a new column named PetalArea.
+``` {r}
+iris$Petal.Area <- iris$Petal.Length * iris$Petal.Width
+```
+
+10. What is the maximum sepal length of the irises?
+``` {r}
+max(iris$Sepal.Length)
+```
+7.9
+
+11. What is the average sepal length among all flowers in the dataset?
+``` {r}
+mean(iris$Sepal.Length)
+```
+5.843333
+
+12. How about the minimum and median sepal length?
+``` {r}
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+```
+min: 4.3
+max: 7.9
+
+# Exercise 1.3
+
+1. Create your own logical vector with three TRUEs and three FALSEs
+``` {r}
+logic_vector <- c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)
+```
+
+2. Produce a vector of the index number of the TRUE values
+``` {r}
+which(logic_vector == TRUE)
+```
+
+3. Produce a second vector which indexes the numbers of the falses
+``` {r}
+which(logic_vector == FALSE)
+```
+
+4. How many irises have sepals less than 5.5 cm?
+``` {r}
+length(which(iris$Sepal.Length < 5.5))
+```
+52 irises
+
+5. Which iris individual has the largest petal length? What is the width of it's petal?
+``` {r}
+iris[which(iris$Petal.Length == max(iris$Petal.Length)), ]
+```
+Iris 119
+Petal Width: 2.3
+
+6. How many of the irises are in this dataset belong to the species versicolor?
+``` {r}
+sum(iris$Species == "versicolor")
+```
+50 irises
+
+7. How many irises have petals longer than 6cm?
+``` {r}
+sum(iris$Petal.Length > 6)
+```
+9 irises
+
+8. Create a vector of species name for each iris with sepals longer than 6cm.
+``` {r}
+iris[which(iris$Sepal.Length > 6), "Species"]
+```
+
+9. How many irises have sepals shorter than 5cm, but wider than 3cm?
+``` {r}
+sum(iris$Sepal.Length < 5 & iris$Sepal.Width > 3)
+```
+13 irises
+
+10. How many irises have petals narrower than 0.2cm or shorter than 1.5cm?
+``` {r}
+sum(iris$Petal.Width < 0.2 | iris$Petal.Length < 1.5)
+```
+26 irises
+
+11. What is the average width of setosa iris sepals that are longer than 5cm?
+``` {r}
+mean(iris[which(iris$Sepal.Length > 5), "Sepal.Width"])
+```
+3.048305
+
+12. What is the difference between the longest and shortest petal lengths of the species virginica?
+``` {r}
+max(iris[iris$Species == "virginica", "Petal.Length"]) - min(iris[iris$Species == "virginica", "Petal.Length"])
+```
+2.4
+
+13. What proportion of flowers in the dataset have petals wider than 1cm?
+``` {r}
+mean(iris$Petal.Width > 1)
+```
+0.62 (62% of flowers)
+
+14. Create a new column within your dataframe, called sepalCategory, and set all values equal to 'long' 
+Subset short values of this column, and set their values to 'short' (Short sepals are those less than 5.5 cm) How many plants with short sepals are there? How many long?
+``` {r}
+iris$sepalCategory <- "long"
+iris[iris$Sepal.Length < 5.5, "sepalCategory"] <- "short"
+sum(iris$sepalCategory == "long")
+sum(iris$sepalCategory == "short")
+```
+98 long flowers
+52 short flowers

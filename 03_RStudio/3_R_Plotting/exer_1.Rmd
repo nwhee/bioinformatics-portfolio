@@ -1,0 +1,77 @@
+# Exercise 1: Practicing Base R Plotting
+# Name: Jonathan Ding
+# Date: 11/5/26
+
+# Load required libraries
+library(ggplot2)
+
+# Load the msleep dataset
+data(msleep)
+
+# ============================================================================
+# Task 1: Create and customize a scatterplot
+# ============================================================================
+# Create a scatterplot of sleep_total vs bodywt (body weight).
+# Customize your plot with:
+# - A point character (pch) of your choice
+# - Blue colored points
+# - Axis labels: "Body Weight (kg)" for x-axis and "Total Sleep (hours)" for y-axis
+# - A border style of your choice (bty)
+
+# Your code here:
+
+``` {r}
+plot(msleep$bodywt ~ msleep$sleep_total, pch = 16, col = "blue", xlab = "Body Weight (kg)", ylab = "Total Sleep (hours)", bty = "C")
+```
+
+# ============================================================================
+# Task 2: Make a histogram
+# ============================================================================
+# Create a histogram of the brainwt (brain weight) variable.
+# Customize your histogram with:
+# - A color of your choice (col)
+# - An appropriate x-axis label
+# - A descriptive title using the main argument
+
+# Your code here:
+
+``` {r}
+hist(msleep$brainwt, col = "springgreen4", xlab = "Brain Weight (kg)", main = "Frequency of Brain Weights in Animals")
+
+# hist(log(msleep$brainwt), col = "springgreen4", xlab = "Brain Weight (kg)", main = "Frequency of Brain Weights in Animals")
+```
+
+# ============================================================================
+# Task 3: Create a boxplot comparing groups
+# ============================================================================
+# Create a boxplot showing sleep_total for each vore type (diet).
+# Customize your boxplot with:
+# - Different colors for each box (hint: use rainbow() or choose specific colors)
+# - Appropriate axis labels
+# - Convert vore to a factor using as.factor()
+
+# Your code here:
+
+``` {r}
+plot(msleep$sleep_total ~ as.factor(msleep$vore), col = c("darkorchid", "orchid", "salmon", "sienna"), xlab = "Vore Type", ylab = "Sleep Total (hours)")
+```
+
+# ============================================================================
+# Bonus Challenge (Optional)
+# ============================================================================
+# Create a scatterplot of any two continuous variables from msleep.
+# Add a line of best fit using abline() and lm().
+# Color points based on a condition you define (like we did with sleep_total >= 17
+# in the tutorial), and add a legend to explain the colors.
+
+# Your code here:
+
+``` {r}
+msleep$colors = head(colors(), 83)
+  
+plot(msleep$sleep_rem ~ msleep$sleep_total, xlab = "Total Sleep (hours)", ylab = "REM Sleep (hours)", pch = 16, col = msleep$colors)
+
+abline(lm(msleep$sleep_rem ~ msleep$sleep_total))
+
+legend(x = "top", legend = "I just wanted to make each point a different color :)", col = "skyblue", lwd = 5)
+```
