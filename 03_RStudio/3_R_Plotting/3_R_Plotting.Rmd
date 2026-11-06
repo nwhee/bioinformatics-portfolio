@@ -1,0 +1,141 @@
+---
+title: "3_R_Plotting"
+author: "Jonathan Ding"
+output: html_document
+date: "2026-11-05"
+---
+
+# Generating Plots in RStudio
+
+## Scatterplots
+``` {r}
+library(ggplot2)
+data(msleep)
+```
+
+``` {r}
+plot(msleep$sleep_total,msleep$bodywt)
+
+plot(msleep$sleep_total~msleep$bodywt) # you'll notice this swaps the x and y axis
+```
+
+## Customizing
+
+``` {r}
+# Choose a pch and make the color blue and give it a bottom+left border
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L")
+
+# Choose a pch and make the color blue and give it a bottom+left border
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+```
+
+``` {r}
+# First make a plot
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+
+# then add a line. The function lm runs a linear model on our x, y values.
+abline(lm(msleep$sleep_total~msleep$bodywt))
+```
+
+``` {r}
+# start by defining points by whether they are greater than sleep_total 16 and storing
+# first make an empty column named colors within the msleep dataframe
+msleep$colors=NA
+
+# store the colors "red" or "black" in the color column for the rows that satsify the following criteria.
+msleep$colors[msleep$sleep_total >= 17] <-"red"
+msleep$colors[msleep$sleep_total < 17] <-"black"
+
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col=msleep$colors, bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+```
+        
+``` {r}
+# let's make a histogram of sleep_total and fill it with the color palette rainbow() which needs to know how many colors to use
+hist(msleep$sleep_total, col=rainbow(10))
+
+# let's make a boxplot of sleep_total and order making each box a different color 
+plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
+
+#Try a boxplot
+boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
+
+# sleep variation across different types of consumers
+plot(msleep$sleep_total~as.factor(msleep$vore),col=rainbow(4), xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)")
+```
+
+## Plotting with ggplot2
+
+``` {r}
+# load in the data
+data(state)
+states = as.data.frame(state.x77) # convert data to a familiar format - data frame
+str(states) # let's take a look at the dataframe
+
+#make an initial ggplot
+ggplot(data=states) 
+
+# lets make a scatterplot of population and income
+# we specify which axes we want to be x and y with aes()
+# we'll then use geom_point to tell it to make a scatterplot using the data we specified in the first command
+ggplot(data=states, aes(x=Population, y=Income))+geom_point() 
+
+ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm") 
+
+ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm")+theme_minimal() 
+
+ggplot(data=states, aes(x=Income, y=Illiteracy, color=Population)) +geom_point()+geom_smooth(method="lm", color="red")+theme_classic() 
+```
+
+``` {r}
+# because our vore vector is a character vector we must convert it to a factor before we can use it to group or color
+ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore))) +geom_point()
+
+# as we add things to the plot the line can get really long, you can hit enter after the plus sign to start a new line
+ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
+  geom_point()+
+  labs(y= "Total Sleep (hours)", x= "REM sleep (hours)")+
+  theme_minimal()+
+  scale_color_manual(name="Diet", 
+                        labels = c("Carnivore", 
+                                   "Herbivore", 
+                                   "Insectivore", 
+                                   "Omnivore", 
+                                    "NA"), 
+                        values = c("carni"="blue", 
+                                   "herbi"="red", 
+                                   "insecti"="green", 
+                                   "omni"="brown", 
+                                   "NA"="orange"))
+
+#assign to an object
+g<-ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
+  geom_point()+
+  labs(y= "Total Sleep (hours)", x= "REM sleep (hours)")+
+  theme_minimal()+
+  scale_color_manual(name="Diet", 
+                        labels = c("Carnivore", 
+                                   "Herbivore", 
+                                   "Insectivore", 
+                                   "Omnivore", 
+                                    "NA"), 
+                        values = c("carni"="blue", 
+                                   "herbi"="red", 
+                                   "insecti"="green", 
+                                   "omni"="brown", 
+                                   "NA"="orange"))
+g
+```
+
+``` {r}
+ggplot(iris, aes(y=Sepal.Length, x=Sepal.Width, group=Species, color=Species))+
+  geom_point()+
+  facet_wrap(~Species)+
+  geom_smooth(method="lm")
+
+ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
+  stat_summary(fun=mean, geom="point", size=1)+
+  stat_summary(fun=mean, geom="line", size=1)+
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+               aes(width=0.1), size=0.5)
+```
+

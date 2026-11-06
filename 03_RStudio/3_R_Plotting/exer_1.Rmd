@@ -3,10 +3,14 @@
 # Date: 11/5/26
 
 # Load required libraries
+``` {r} 
 library(ggplot2)
+```
 
 # Load the msleep dataset
+``` {r}
 data(msleep)
+```
 
 # ============================================================================
 # Task 1: Create and customize a scatterplot
