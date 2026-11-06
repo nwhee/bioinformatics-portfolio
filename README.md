@@ -18,6 +18,8 @@ This repository documents the bioinformatics skills I developed during my introd
 
 ## Repository Organization
 
+Github Address: github.com/nwhee
+
 Each folder corresponds to a unit of the course and contains scripts, summary results, and documentation of the methods used.
 
 Data files will generally be located in the corresponding folder in: /courses/BIOL2406.202710/students/ding.jo/Data

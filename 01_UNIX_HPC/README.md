@@ -5,6 +5,8 @@
 This directory contains all files and data associated with the UNIX/HPC tutorial.
 ## Contents and Locations
 
+Github Address: github.com/nwhee
+
 1_UNIX_transcript.txt:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/01_UNIX/1_UNIX_transcript.txt
 - Contains the shell transcript (cleaned and commented) for the tasks from part 1

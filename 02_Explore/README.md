@@ -5,6 +5,8 @@
 This directory contains all files and data associated with the Explore tutorial.
 ## Contents and Locations
 
+Github Address: github.com/nwhee
+
 1_Genomes:
 - path: /courses/BIOL2406.202710/students/ding.jo/bioinformatics-portfolio/02_Explore/1_Genomes
 - Contains:
